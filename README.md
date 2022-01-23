@@ -1,5 +1,7 @@
 # nuxtapp
 
+### by Mateus Marinho
+
 ## Build Setup
 
 ```bash
