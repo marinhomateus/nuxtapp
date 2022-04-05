@@ -4,13 +4,12 @@ from models.stock import Stock
 
 router = APIRouter()
 
-db = []
 
 @router.post("/")
-def add_item(item: Stock):
-    db.append(item)
+async def add_item(item: Stock):
+    await item.save()
     return item
 
 @router.get("/")
-def list_items():
-    return db
+async def list_items():
+    return await Papel.objects.all()
