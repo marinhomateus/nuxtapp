@@ -1,10 +1,12 @@
 import ormar
 from config import database, metadata
 
+
 class BaseMeta(ormar.ModelMeta):
     metadata = metadata
     database = database
-        
+
+
 class Stock(ormar.Model):
     class Meta(BaseMeta):
         tablename = "stocks"
