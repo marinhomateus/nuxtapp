@@ -1,9 +1,9 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
-      v
       :mini-variant="miniVariant"
       :clipped="clipped"
+      color="navAndFooter"
       expand-on-hover
       fixed
       app
@@ -24,29 +24,49 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <template v-slot:append>
+        <div class="pa-0">
+          <v-btn block @click="darkMode" class="mx-auto" color="transparent">
+            <v-row align="center" justify="center">
+              <v-tooltip v-if="!$vuetify.theme.dark" bottom>
+                <template v-slot:activator="{ on }">
+                  <v-btn text v-on="on" x-small fab>
+                    <v-icon color="black">mdi-moon-waxing-crescent</v-icon>
+                  </v-btn>
+                </template>
+                <span>Dark Mode On</span>
+              </v-tooltip>
+
+              <v-tooltip v-else bottom>
+                <template v-slot:activator="{ on }">
+                  <v-btn text v-on="on" x-small fab>
+                    <v-icon color="white">mdi-white-balance-sunny</v-icon>
+                  </v-btn>
+                </template>
+                <span>Dark Mode Off</span>
+              </v-tooltip>
+            </v-row>
+          </v-btn>
+        </div>
+      </template>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" dense fixed app>
+    <v-app-bar :clipped-left="clipped" color="prometeon" dense fixed app>
       <v-spacer />
-      <p class="text-h6">Title</p>
+      <v-flex class="pa-10 pb-8 text-center">
+        <img src="@/assets/images/logoWhite.png" style="max-height: 30px" />
+      </v-flex>
       <v-spacer />
     </v-app-bar>
-    <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
-    </v-main>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+    <v-content class="app">
+      <nuxt />
+    </v-content>
+    <v-footer dense color="navAndFooter" app>
+      <v-spacer />
+      <span>
+        Powered by <strong>Your Team</strong> &copy;
+        {{ new Date().getFullYear() }}</span
+      >
+      <v-spacer />
     </v-footer>
   </v-app>
 </template>
@@ -54,6 +74,13 @@
 <script>
 export default {
   name: "DefaultLayout",
+  head() {
+    return {
+      bodyAttrs: {
+        class: "reset-body",
+      },
+    };
+  },
   data() {
     return {
       clipped: true,
@@ -67,9 +94,14 @@ export default {
           to: "/",
         },
         {
+          icon: "mdi-google-maps",
+          title: "Maps",
+          to: "/maps",
+        },
+        {
           icon: "mdi-chart-bubble",
           title: "Inspire",
-          to: "/inspire",
+          to: "/windows",
         },
       ],
       right: true,
@@ -77,5 +109,16 @@ export default {
       title: "Vuetify.js",
     };
   },
+  methods: {
+    darkMode() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    },
+  },
 };
 </script>
+
+<style>
+.reset-body {
+  margin: 0;
+}
+</style>
