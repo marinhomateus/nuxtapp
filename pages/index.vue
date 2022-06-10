@@ -17,8 +17,22 @@
               <v-list-item-title class="text-h5 my-3">
                 Item Title
               </v-list-item-title>
+              <Chart1 />
+              <v-list-item-subtitle class="mb-3">Profit</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+      </v-col>
+      <v-col cols="3">
+        <v-card class="mx-auto">
+          <v-list-item three-line>
+            <v-list-item-content>
+              <v-list-item-title class="text-h5 my-3">
+                Item Title
+              </v-list-item-title>
+              <Chart1 />
               <v-list-item-subtitle class="mb-3"
-                >321654987</v-list-item-subtitle
+                >Production</v-list-item-subtitle
               >
             </v-list-item-content>
           </v-list-item>
@@ -31,9 +45,8 @@
               <v-list-item-title class="text-h5 my-3">
                 Item Title
               </v-list-item-title>
-              <v-list-item-subtitle class="mb-3"
-                >321654987</v-list-item-subtitle
-              >
+              <Chart1 />
+              <v-list-item-subtitle class="mb-3">Costs</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-card>
@@ -45,23 +58,8 @@
               <v-list-item-title class="text-h5 my-3">
                 Item Title
               </v-list-item-title>
-              <v-list-item-subtitle class="mb-3"
-                >321654987</v-list-item-subtitle
-              >
-            </v-list-item-content>
-          </v-list-item>
-        </v-card>
-      </v-col>
-      <v-col cols="3">
-        <v-card class="mx-auto">
-          <v-list-item three-line>
-            <v-list-item-content>
-              <v-list-item-title class="text-h5 my-3">
-                Item Title
-              </v-list-item-title>
-              <v-list-item-subtitle class="mb-3"
-                >321654987</v-list-item-subtitle
-              >
+              <Chart1 />
+              <v-list-item-subtitle class="mb-3">Cash</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-card>
@@ -120,7 +118,9 @@
             <v-icon class="ml-4"> mdi-basket </v-icon>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content> </v-list-item-content>
+            <v-list-item-content class="pa-4">
+              <Chart2 />
+            </v-list-item-content>
           </v-list-item>
         </v-card>
       </v-col>
@@ -145,15 +145,12 @@
         <v-card>
           <v-list-item>
             <v-list-item-content>
-              <v-card-title>Results</v-card-title>
+              <v-card-title>Latest Notifications</v-card-title>
             </v-list-item-content>
           </v-list-item>
           <v-list-item>
             <v-list-item-content>
-              <v-data-table
-                :headers="commentsHeaders"
-                :items="comments"
-              ></v-data-table>
+              <Avatars />
             </v-list-item-content>
           </v-list-item>
         </v-card>

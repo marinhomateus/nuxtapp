@@ -103,6 +103,11 @@ export default {
           title: "Inspire",
           to: "/windows",
         },
+        {
+          icon: "mdi-account-group",
+          title: "Users",
+          to: "/users",
+        },
       ],
       right: true,
       rightDrawer: false,
