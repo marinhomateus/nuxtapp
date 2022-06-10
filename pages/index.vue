@@ -2,11 +2,15 @@
   <div class="ma-4">
     <v-row>
       <v-col>
-        <v-toolbar-title class="text-h5 font-weight-bold mt-5"
-          >Title</v-toolbar-title
-        >
-
-        <v-breadcrumbs :items="items" large></v-breadcrumbs>
+        <v-card class="pa-4">
+          <v-card-title primary-title class="justify-center"
+            >Dashboard</v-card-title
+          >
+          <v-card-actions>
+            <v-spacer />
+            <v-btn dark color="prometeon">Login</v-btn>
+          </v-card-actions>
+        </v-card>
       </v-col>
     </v-row>
     <v-row>
@@ -163,13 +167,6 @@
 export default {
   name: "Home",
   data: () => ({
-    items: [
-      {
-        text: "Login",
-        disabled: false,
-        to: "/login",
-      },
-    ],
     search: "",
     orderHeaders: [
       { text: "Column", value: "title" },
