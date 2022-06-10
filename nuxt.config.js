@@ -73,7 +73,7 @@ export default {
       options: {
         customProperties: true
       },
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           prometeon: "#212b59",
